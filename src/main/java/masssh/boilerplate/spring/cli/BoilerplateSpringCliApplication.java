@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class BoilerplateSpringCliApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BoilerplateSpringCliApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BoilerplateSpringCliApplication.class, args);
+    }
 
 }

@@ -1,0 +1,63 @@
+buildscript {}
+
+plugins {
+    id "java"
+    id "java-library"
+    id "jacoco"
+    id "maven"
+}
+
+final String _groupId = "masssh"
+final String _artifactId = "boilerplate-java-library"
+final String _version = new File(projectDir, "VERSION").getText().trim()
+
+repositories {
+    jcenter()
+}
+
+configurations {}
+
+dependencies {
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.4.1"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.4.1"
+    testImplementation "org.assertj:assertj-core:3.12.2"
+    testImplementation "org.jacoco:org.jacoco.build:0.8.3"
+}
+
+allprojects {}
+
+subprojects {}
+
+sourceCompatibility = "11"
+targetCompatibility = "11"
+archivesBaseName = "$_artifactId-$_version"
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://localhost:8081/nexus/content/repositories/releases/") {
+                authentication(userName: "admin", password: "admin123")
+            }
+            snapshotRepository(url: "http://localhost:8081/nexus/content/repositories/snapshots/") {
+                authentication(userName: "admin", password: "admin123")
+            }
+            pom {
+                groupId = _groupId
+                artifactId = _artifactId
+                version = _version
+            }
+        }
+    }
+}
+
+wrapper {
+    gradleVersion = "5.6.3"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jacoco {
+    toolVersion = "0.8.3"
+}

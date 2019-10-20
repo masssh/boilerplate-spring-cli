@@ -1,2 +1,1 @@
-# gradle-boilerplate
-a boilerplate for gradle project
+# boilerplate-spring-cli

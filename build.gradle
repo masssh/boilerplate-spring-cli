@@ -31,7 +31,6 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.4.1"
     testImplementation "org.jacoco:org.jacoco.build:0.8.3"
 }
 
